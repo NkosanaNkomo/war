@@ -1,5 +1,5 @@
-var SUITS = ["Clubs", "Diamonds", "Hearts", "Spades"]
-var VALUES = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13] 
+var SUITS = ["♡", "♢", "♤", "♧"]
+var VALUES = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "K", "Q"] 
 
 export default class Deck {
     constructor(cards) {
@@ -19,6 +19,7 @@ shuffle() {
 }
 }
 
+// card
 class Card {
     constructor(suit, value) {
         this.suit = suit
