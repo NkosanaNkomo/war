@@ -2,7 +2,7 @@ var SUITS = ["♡", "♢", "♤", "♧"]
 var VALUES = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "K", "Q"] 
 
 export default class Deck {
-    constructor(cards) {
+    constructor(cards = freshDeck()) {
         this.cards = cards
     }
 
@@ -13,7 +13,8 @@ get numberOfCards() {
 shuffle() {
     for (let i = this.numberOfCards - 1; i > 0; i--) {
         const newIndex = Math.floor(Math.random() * (i +1))
-        const oldValue = this.cards[newIndex] = this.cards[i]
+        const oldValue = this.cards[newIndex] 
+        this.cards[newIndex]= this.cards[i]
         this.cards[i] = oldValue
     }
 }
