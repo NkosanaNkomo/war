@@ -1,4 +1,24 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+}
 
+.card {
+    display: block;
+    margin: auto;
+    padding: 7px;
+    height: 110px;
+    width: 80px;
+    margin-top: 10px;
+    background-color: whitesmoke;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 5px 10px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    position: relative;
+    }
 
 body {
     margin: 0;
@@ -9,7 +29,6 @@ body {
     cursor: pointer;
     justify-content: center;
     padding-top: center;
-    padding-top: 1rem; 
 }
 
 .deck {
@@ -39,4 +58,30 @@ body {
 
 .player-deck {
     background-color: blue;
+}
+
+.card.red {
+    color:red;
+}
+
+.card.black {
+    color: black;
+}
+
+.card::before,
+.card::after {
+    position: absolute;
+    content: attr(data-value);
+    font-size: 1rem;
+}
+
+.card::before {
+    top: .5rem;
+    left: .5rem
+}
+
+.card::after {
+    top: .5rem;
+    left: .5rem;
+    transform: rotate(180deg);
 }
