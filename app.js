@@ -1,5 +1,6 @@
 import Deck from "./deck.js"
 
+// converts/updates value of cards such as J, Q, K, A
 const CARD_VALUE_MAP = {
     "2" : 2,
     "3" : 3,
@@ -16,6 +17,8 @@ const CARD_VALUE_MAP = {
     "A" : 14,
 }
 
+//grabs from html div classes
+
 const computerCardSlot = document.querySelector(".computer-card-slot")
 const playerCardSlot = document.querySelector(".player-card-slot")
 const computerDeckElement = document.querySelector(".computer-deck")
@@ -24,6 +27,8 @@ const text = document.querySelector(".text")
 
 let playerDeck, computerDeck, inRound, stop
 
+
+//creates clickability for game aka listens for the click to start actions
 document.addEventListener("click", () => {
   if (stop) {
     startGame()
@@ -37,11 +42,15 @@ document.addEventListener("click", () => {
   }
 })
 
+
+// starts game, creates new deck, shuffles deck, and 
 startGame()
 function startGame() {
   const deck = new Deck()
   deck.shuffle()
 
+// splits deck into two by creating a mid point
+// slice "slices off" cards from the points you put into it
   const deckMidpoint = Math.ceil(deck.numberOfCards / 2)
   playerDeck = new Deck(deck.cards.slice(0, deckMidpoint))
   computerDeck = new Deck(deck.cards.slice(deckMidpoint, deck.numberOfCards))
@@ -51,6 +60,8 @@ function startGame() {
   cleanBeforeRound()
 }
 
+//resets game inbetween round by making them blank
+// inRound is for is it in the middle of a round or nah
 function cleanBeforeRound() {
   inRound = false
   computerCardSlot.innerHTML = ""
@@ -60,6 +71,7 @@ function cleanBeforeRound() {
   updateDeckCount()
 }
 
+//
 function flipCards() {
   inRound = true
 
@@ -71,20 +83,22 @@ function flipCards() {
 
   updateDeckCount()
 
+  // if statements to determing winner
   if (isRoundWinner(playerCard, computerCard)) {
-    text.innerText = "Win"
+    text.innerText = "Win!!!!"
     playerDeck.push(playerCard)
     playerDeck.push(computerCard)
   } else if (isRoundWinner(computerCard, playerCard)) {
-    text.innerText = "Lose"
+    text.innerText = "Lose!!!!"
     computerDeck.push(playerCard)
     computerDeck.push(computerCard)
   } else {
-    text.innerText = "Draw"
+    text.innerText = "Draw!!!!!"
     playerDeck.push(playerCard)
     computerDeck.push(computerCard)
   }
 
+  // for if you run out of cards
   if (isGameOver(playerDeck)) {
     text.innerText = "You Lose!!"
     stop = true
@@ -94,11 +108,13 @@ function flipCards() {
   }
 }
 
+//updates how many cards each player has
 function updateDeckCount() {
   computerDeckElement.innerText = computerDeck.numberOfCards
   playerDeckElement.innerText = playerDeck.numberOfCards
 }
 
+//check who won
 function isRoundWinner(cardOne, cardTwo) {
   return CARD_VALUE_MAP[cardOne.value] > CARD_VALUE_MAP[cardTwo.value]
 }
