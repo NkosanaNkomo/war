@@ -28,6 +28,7 @@ body {
     gap: .5rem;
     justify-content: center;
     padding-top: 2rem;
+    background: url(/images/aces.jpg)fixed;
 }
 
 .deck {

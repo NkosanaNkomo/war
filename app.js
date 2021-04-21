@@ -71,7 +71,7 @@ function cleanBeforeRound() {
   updateDeckCount()
 }
 
-//
+// Flips first card
 function flipCards() {
   inRound = true
 
