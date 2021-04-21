@@ -12,7 +12,7 @@
     background-color: whitesmoke;
     border: 1px solid black;
     border-radius: 5px;
-    box-shadow: 5px 10px black;
+    box-shadow: 5px 10px grey;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,8 +40,9 @@ body {
     align-items: center;
     font-size: 3rem;
     border-radius: .5rem;
-    color: white;
+    color: rgb(99, 97, 97);
     user-select: none;
+    box-shadow: 5px 10px grey;
 
 }
 
@@ -54,10 +55,15 @@ body {
 
 .computer-deck {
     background-color: red;
+    background-image: url(/images/red_back.jpg);
+    background-size: 63px 110px;
 }
+
 
 .player-deck {
     background-color: blue;
+    background-image: url(/images/blue_back.jpg);
+    background-size: 63px 110px;
 }
 
 .card.red {
